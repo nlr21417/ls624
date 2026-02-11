@@ -1,6 +1,6 @@
 # ls624
 ## first repo for LS624
-## YYYY-MM-DD - First Entry in GitHub Read Me
+## 2026-02-11 - First Entry in GitHub Read Me
 Goal: to imput data into GitHub
 Context: for class
 Steps: as described in Burns Systems Librarianship manual section 2.4
