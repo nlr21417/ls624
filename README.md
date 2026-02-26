@@ -21,3 +21,8 @@ To get the README.MD back into nano I had to link back to GitHub.
 
 I also used the tab button to complete or give me the options to complete the line  
 
+## 2026-02-26 Third Entry in GitHub README
+I need to get better about using this. 
+In completing my third check-in I found that repeating the movements is very helpful to retention.
+
+I am repeating it, but the tab and up arrows are awesome. I love not having to retype stuff. My memory is getting better and I'm going to try to start keeping my GitHub open when I work through this weeks problems. 
