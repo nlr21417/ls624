@@ -26,3 +26,13 @@ I need to get better about using this.
 In completing my third check-in I found that repeating the movements is very helpful to retention.
 
 I am repeating it, but the tab and up arrows are awesome. I love not having to retype stuff. My memory is getting better and I'm going to try to start keeping my GitHub open when I work through this weeks problems. 
+
+## 2026-02-28 Fourth Entry in GitHub README
+#Apache Lesson
+Note A: I am understanding what is going on so far. I've updated and upgraded. This week the prompt had -y, mind blown, it means that I don't have the extra step of confirming I want it to upgrade. It was done in the initial prompt. 
+
+#Error - **again**, when I got into nano and tried to complete my page. I could _neither_ exit or have it show up on my gui. I exited by closing the ssh window. Getting back in I begain again, from 
+```sudo vi index.html```
+received a new error regarding potential duplication. Completed **R** for recovery. 
+Turns out I wasn't in Nano but vi. Lesson learned, pay attention with more parts of your brain. 
+I have since learned I can open two SSH sessions and open the _man vi_ while I have the CLI open as well. 
