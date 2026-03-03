@@ -11,10 +11,7 @@ The goal was to verify PHP server-side execution using a `phpinfo()` test file a
 - VM Provider: Google Cloud
 - OS: Ubuntu 24.04.4 LTS
 - Web Server: Apache2
-- PHP Version: PHP 8.3.6 (cli) (built: Jan  7 2026 08:40:32) (NTS)
-Copyright (c) The PHP Group
-Zend Engine v4.3.6, Copyright (c) Zend Technologies
-    with Zend OPcache v8.3.6, Copyright (c), by Zend Technologies
+- PHP Version: 8.3.6 
 - Tested From: Google Chrome
 
 ## Files in This Repo
@@ -30,3 +27,11 @@ Zend Engine v4.3.6, Copyright (c) Zend Technologies
 
 
 [Nancy Roberts' Webpage](http://35.192.178.142/)
+
+## Issues Encountered
+- None during intallation and testing
+
+## Reflection 
+What clicked for me is that PHP isn’t executed in the browser like JavaScript. Apache runs the PHP on the server and sends back the resulting HTML.
+Updating DirectoryIndex helped me understand how Apache decides what file to serve by default, and why index.php can “override” index.html when it appears first in the list. 
+This repeats what was discussed earlier about order being important in the command line.
