@@ -8,11 +8,14 @@ This repository documents my process installing and configuring PHP to work with
 The goal was to verify PHP server-side execution using a `phpinfo()` test file and a browser/OS detection script (`index.php`).
 
 ## Environment
-- VM Provider: <!-- ex: Google Cloud / AWS / VirtualBox / etc. -->
-- OS: <!-- ex: Ubuntu 22.04 LTS -->
-- Web Server: Apache <!-- add version if you know it -->
-- PHP Version: <!-- paste from `php -v` -->
-- Tested From: <!-- ex: Firefox on Windows, Safari on iPhone, etc. -->
+- VM Provider: Google Cloud
+- OS: Ubuntu 24.04.4 LTS
+- Web Server: Apache2
+- PHP Version: PHP 8.3.6 (cli) (built: Jan  7 2026 08:40:32) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.3.6, Copyright (c) Zend Technologies
+    with Zend OPcache v8.3.6, Copyright (c), by Zend Technologies
+- Tested From: Google Chrome
 
 ## Files in This Repo
 - `php-setup.md` — step-by-step installation/configuration notes (commands + config edits)
@@ -26,4 +29,4 @@ The goal was to verify PHP server-side execution using a `phpinfo()` test file a
 5. Created `index.php`.
 
 
-### [Result: (http://35.192.178.142/)]
+[Nancy Roberts' Webpage](http://35.192.178.142/)
