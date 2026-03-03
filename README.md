@@ -36,3 +36,8 @@ Note A: I am understanding what is going on so far. I've updated and upgraded. T
 received a new error regarding potential duplication. Completed **R** for recovery. 
 Turns out I wasn't in Nano but vi. Lesson learned, pay attention with more parts of your brain. 
 I have since learned I can open two SSH sessions and open the _man vi_ while I have the CLI open as well. 
+
+## 2026-03-03
+### PHP Documentation
+## Documentation
+- [Installing and Configuring PHP](php-setup.md)
