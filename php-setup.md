@@ -23,4 +23,7 @@ The goal was to verify PHP server-side execution using a `phpinfo()` test file a
 2. Restarted/reloaded Apache and verified service status.
 3. Created and tested `info.php` (then removed it for security).
 4. Updated Apache `DirectoryIndex` to prioritize `index.php`.
-5. Created `index
+5. Created `index.php`.
+
+
+### [Result: (http://35.192.178.142/)]
