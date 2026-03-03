@@ -39,5 +39,11 @@ I have since learned I can open two SSH sessions and open the _man vi_ while I h
 
 ## 2026-03-03
 ### PHP Documentation
-## Documentation
+- started PHP documentation by creating and linking the php-setup.md
 - [Installing and Configuring PHP](php-setup.md)
+
+### Environment
+- VM Provider: Google Cloud
+- OS: Ubuntu 24.04.4 LTS
+- Web Server: Apache2
+- PHP Version: 8.3.6
