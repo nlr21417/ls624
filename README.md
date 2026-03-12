@@ -57,4 +57,4 @@ I have since learned I can open two SSH sessions and open the _man vi_ while I h
 - VM Provider: Google Cloud
 - OS: Ubuntu 24.04.4 LTS
 - Web Server: Apache2
-- MySQL Version: 8.3.6
+- MySQL Version: 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64
