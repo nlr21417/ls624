@@ -1,6 +1,6 @@
 # Installing and Configuring MySQL
 ## Week 9
-### 2026-03-11
+### 2026-03-11 & 2026-03-12
 
 
 ## Overview
@@ -11,29 +11,33 @@ The goal of this lab is to install MySQL, secure it, create a database and regul
 ## Environment
 - VM Provider: Google Cloud
 - OS: Ubuntu 24.04.4 LTS
-- Hostname:
 - MySQL Version: 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64
-- Public IP Address:
 - Tested From: Google Chrome
 
 ## Files in This Repo
-- `php-setup.md` — step-by-step installation/configuration notes (commands + config edits)
-- `README.md` — overview + what was accomplished
+- `mysql-install.md` — step-by-step notes for installing and configuring MySQL, creating a database and user, and testing SQL commands
+- `README.md` — repository overview and summary of what was completed
 
 ## Steps Completed (High-Level)
-1. Installed PHP and the Apache PHP module.
-2. Restarted/reloaded Apache and verified service status.
-3. Created and tested `info.php` (then removed it for security).
-4. Updated Apache `DirectoryIndex` to prioritize `index.php`.
-5. Created `index.php`.
+1. Updated the Ubuntu system packages.
+2. Installed MySQL server.
+3. Verified the MySQL version and service status.
+4. Ran `mysql_secure_installation` to apply basic security settings.
+5. Logged in as the MySQL root user.
+6. Created a regular MySQL user and a practice database.
+7. Created the `books` table and inserted test records.
+8. Ran `select`, `update`, `delete`, `insert`, and `alter table` commands.
+9. Installed PHP support for MySQL.
+10. Created `login.php` with database credentials and set secure permissions.
+11. Created `opac.php` to retrieve and display database records.
+12. Tested PHP syntax and verified the page in the browser.
 
 
-[Nancy Roberts' Webpage](http://35.192.178.142/)
+[My OPAC Test Page](http://35.192.178.142/opac.php)
 
 ## Issues Encountered
-- None during intallation and testing
+- I did not run into major installation errors, but I could only get some of the commands to work if I pasted them from your guide into a word document. I couldn't personally find my typos, so I'm sure it was a space or lack of space issue. I just couldn't determine what actual character area I was messing up. 
+- The `login.php` file location and permissions was the only hiccup, I got an error because I didn't put in the actual password. 
 
 ## Reflection 
-What clicked for me is that PHP isn’t executed in the browser like JavaScript. Apache runs the PHP on the server and sends back the resulting HTML.
-Updating DirectoryIndex helped me understand how Apache decides what file to serve by default, and why index.php can “override” index.html when it appears first in the list. 
-This repeats what was discussed earlier about order being important in the command line.
+By typing in each command I felt my fingers become more familiar with the process. I actually liked the additional commands and repetition. We had done something similar in an earlier assignment that ended up confusing me, but I can see with this round that it is becoming easier. 
