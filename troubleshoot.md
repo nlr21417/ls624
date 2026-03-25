@@ -31,3 +31,5 @@ You may be able to connect without using the Cloud Identity-Aware Proxy.
   
   #### RESOLVED
 I ended up stopping the instance and restarting. That fixed the issue. 
+My IP Address changed: 35.192.178.142 to http://34.173.94.120/
+I changed the documentation for [lamp-documentation.md](https://github.com/nlr21417/ls624/blob/4f20eeb2b1446b981834cbb38d9b39cb89496657/lamp-documentation.md)
