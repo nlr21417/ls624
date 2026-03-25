@@ -85,7 +85,7 @@ I edited Apache’s directory index configuration so that `index.php` would load
 
 ### Link to Site
 
-* [index.php](http://35.192.178.142/index.php)
+* [index.php](http://34.173.94.120/index.php)
 
 
 ---
@@ -204,7 +204,7 @@ Then I opened the page in the browser and confirmed that the records from the `b
 
 ### Link to Site
 
-* [opac.php](http://35.192.178.142/opac.php)
+* [opac.php](http://34.173.94.120/opac.php)
 
 ---
 
