@@ -4,6 +4,8 @@
 
 ### 2026-04-04
 
+[My WordPress Page](http://34.173.94.120/wordpress)
+
 ## Overview
 
 This document records my process for installing and configuring WordPress on my Linux virtual machine. The goal of this lab was to verify that the server met the software requirements, install the required PHP modules, download and extract WordPress, create the WordPress database and user in MySQL, configure `wp-config.php`, troubleshoot the setup, and complete the browser-based installation.
