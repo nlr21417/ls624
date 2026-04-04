@@ -60,3 +60,4 @@ If I were repeating this process, I would still document the errors as they happ
 ## Result
 
 The WordPress installation completed successfully, and the site loaded through the browser using the server IP address and the `/wordpress/` directory.
+http://34.173.94.120/wordpress/
