@@ -58,3 +58,16 @@ I have since learned I can open two SSH sessions and open the _man vi_ while I h
 - OS: Ubuntu 24.04.4 LTS
 - Web Server: Apache2
 - MySQL Version: 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64
+
+## 2026-04-04
+### WordPress Documentation
+- started WordPress documentation by creating and linking the WordPress installation notes
+- [Installing and Configuring WordPress](WordPress-setup.md)
+
+### Environment
+- VM Provider: Google Cloud
+- OS: Ubuntu 24.04.4 LTS
+- Web Server: Apache2
+- PHP Version: 8.3.6
+- MySQL Version: 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64
+- CMS: WordPress
