@@ -1,3 +1,17 @@
+## 2026-04-08
+### Omeka Documentation
+- started Omeka documentation by creating and linking the Omeka installation notes
+- [Installing and Configuring Omeka Classic](Omeka.md)
+
+### Environment
+- VM Provider: Google Cloud
+- OS: Ubuntu 24.04.4 LTS
+- Web Server: Apache2
+- PHP Version: 8.3.6
+- MySQL Version: 8.0.45-0ubuntu0.24.04.1 for Linux on x86_64
+- Digital Library Platform: Omeka Classic
+
+ 
 # ls624
 ## first repo for LS624
 ## 2026-02-11 - First Entry in GitHub README
