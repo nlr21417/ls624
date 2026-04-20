@@ -1,4 +1,21 @@
-## 2026-04-08
+## 2026-04-20
+### Koha Documentation
+- completed the Koha ILS installation on a new Ubuntu VM
+- configured Apache, MariaDB, and Koha so the staff interface and OPAC could load on ports `8080` and `8081`
+- connected the final Koha work back to the larger library website project
+- updated the WordPress site so it can link to the Omeka digital library and the Koha OPAC
+- [Installing and Configuring Koha ILS](KohaILS.md)
+
+### Environment
+- VM Provider: Google Cloud
+- OS: Ubuntu 24.04.4 LTS
+- Web Server: Apache2
+- Database Server: MariaDB
+- Library System: Koha ILS
+- Staff Interface Port: 8080
+- OPAC Port: 8081
+-
+ ## 2026-04-08
 ### Omeka Documentation
 - started Omeka documentation by creating and linking the Omeka installation notes
 - [Installing and Configuring Omeka Classic](Omeka.md)
