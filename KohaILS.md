@@ -93,10 +93,6 @@ That made this final project feel much closer to a real systems librarianship wo
 - WordPress Site: http://34.173.94.120/wordpress/
 - Koha OPAC: http://34.45.17.203:8081/
 
-## Notes
-
-For security, I would not include the real Koha installer password or staff credentials in GitHub documentation. Any passwords used during installation should be replaced with placeholders before publishing the documentation publicly.
-
 ## Reflection
 
 This was the most systems-focused installation in the project because it required attention to the operating system, package repositories, Apache modules, Apache ports, database setup, instance creation, and browser-based configuration all at the same time. Earlier assignments helped build the background for that, but Koha made the relationships among those layers much more visible.
