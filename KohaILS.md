@@ -1,66 +1,106 @@
 # Installing and Configuring Koha ILS
 
 ## Week 13
-
 ### 2026-04-20
 
 ## Overview
 
-This project involved installing **Koha** as the final major piece of the library website project. In the earlier parts of the project, I installed **WordPress** as the main website and **Omeka Classic** as a digital library platform. For this final section, I installed **Koha**, an integrated library system (ILS), to add a more complete library management and OPAC component to the server. The course text frames this as the last part of the library web infrastructure project and describes Koha as the system that adds modules such as patron management, circulation, cataloging, serials, acquisitions, reports, and an OPAC. :contentReference[oaicite:0]{index=0}
+This project involved installing **Koha** as the final major part of the library website project. In earlier assignments, I installed **WordPress** as the main public-facing website and **Omeka Classic** as a digital library platform. In this final stage, I installed **Koha** to add a library catalog and integrated library system (ILS) component.
+
+Koha is different from WordPress and Omeka because it is not just a content platform. It is a library system that supports catalog searching, staff-side administration, and the structure needed for a working OPAC. The goal of this assignment was to install Koha on a Linux server, complete the initial web-based setup, and connect the final result back to the larger library website project.
 
 ## Environment
 
 - VM Provider: Google Cloud
-- OS: Ubuntu 24.04 LTS
+- OS: Ubuntu 24.04.4 LTS
 - Web Server: Apache2
-- Database: MariaDB
+- Database Server: MariaDB
 - Library System: Koha ILS
 - Staff Interface Port: 8080
 - OPAC Port: 8081
 
 ## Files in This Repo
 
-- `README.md` — repository overview and summary of the Koha assignment
-- `Koha-setup.md` — summary of the Koha installation and configuration process
-- other course documentation files for the earlier WordPress, Omeka, and OPAC assignments
+- `README.md` — repository overview and summary of completed course work
+- `KohaILS.md` — summary of the Koha installation and configuration process
+- previous documentation files for WordPress, Omeka, MySQL, PHP, and OPAC work
 
 ## Steps Completed (High-Level)
 
-1. Created a new Google Cloud virtual machine with more memory and storage because Koha requires more resources than the earlier WordPress and Omeka installs.
-2. Added the required Google Cloud firewall rules and network tags so the Koha staff interface and public OPAC could load on ports `8080` and `8081`.
-3. Updated the server and cleaned unused packages before beginning the Koha installation.
-4. Added the Koha package repository and signing key so the software could be installed through `apt`.
-5. Installed MariaDB because the course setup uses MariaDB as the database backend for Koha.
-6. Installed the `koha-common` package.
-7. Edited `/etc/koha/koha-sites.conf` so the staff interface would use port `8080` and the public OPAC would use port `8081`.
-8. Enabled the required Apache modules and updated Apache so it would listen on the Koha ports.
-9. Created a Koha instance with `koha-create --create-db bibliolib`.
-10. Disabled the default Apache site and enabled the Koha site configuration.
-11. Retrieved the Koha installer username and password with `koha-passwd bibliolib`.
-12. Completed the remaining setup through the Koha web installer.
-13. Verified that the staff interface loaded on port `8080` and the public OPAC loaded on port `8081`. :contentReference[oaicite:1]{index=1}
+1. Created and prepared a new Ubuntu virtual machine for the Koha installation.
+2. Updated the package lists, upgraded installed software, and cleaned unused packages.
+3. Installed missing tools on the minimized Ubuntu image, including `tmux` and `nano`, when needed.
+4. Added the Koha package repository and signing key.
+5. Fixed a key file naming issue so the Koha repository could be verified by `apt`.
+6. Installed MariaDB as the database backend for Koha.
+7. Confirmed that the `koha-common` package was available from the repository.
+8. Installed `koha-common` and its large set of dependencies.
+9. Edited `/etc/koha/koha-sites.conf` to use port `8080` for the staff interface and `8081` for the OPAC.
+10. Enabled required Apache modules, including `rewrite` and `cgi`.
+11. Created the Koha instance with `sudo koha-create --create-db bibliolib`.
+12. Disabled Apache’s default site and confirmed the `bibliolib` site was enabled.
+13. Updated Apache so it would listen on ports `8080` and `8081`.
+14. Retrieved the Koha installer credentials with `sudo koha-passwd bibliolib`.
+15. Completed the browser-based Koha setup and loaded the required system data.
+16. Verified that the Koha staff and public interfaces could load in the browser.
+17. Updated the WordPress site so it could serve as the public-facing homepage linking out to Omeka and the Koha OPAC.
+
+## Important Configuration Details
+
+Several small configuration details were necessary for the Koha install to work correctly:
+
+- The Koha repository key had to match the exact path listed in the `Signed-By` field.
+- The repository file path had to be `/etc/apt/sources.list.d/koha.sources`, not `/etc/apt/source.list.d/koha.sources`.
+- The Apache modules `rewrite` and `cgi` had to be enabled before `koha-create` would complete.
+- `/etc/koha/koha-sites.conf` had to be updated so the instance used:
+  - `INTRAPORT="8080"`
+  - `OPACPORT="8081"`
+- Apache’s `/etc/apache2/ports.conf` had to be updated so it would listen on ports `8080` and `8081`, not just port `80`.
+- The Koha instance was created with the name `bibliolib`, which also affected the site configuration and installer credentials.
+
+These details were important because the Koha installation depended on the package repository, Apache, MariaDB, Koha configuration files, and browser-based installer all matching correctly.
 
 ## Issues Encountered
 
-The biggest difference between Koha and the earlier installations was that Koha required a separate VM with more RAM and a more involved network setup. Unlike WordPress and Omeka, Koha also depended on separate ports for the staff side and public OPAC, so the Google Cloud firewall rules, network tags, Apache configuration, and Koha site configuration all had to match. The course notes specifically warn that if the site does not load, the most common causes are missing network tags, incorrect firewall rules, or Apache not listening on the correct ports. :contentReference[oaicite:2]{index=2}
+The Koha installation involved more troubleshooting than some of the earlier web application assignments because the new VM was a minimized Ubuntu image and did not include several basic tools by default.
 
-Another thing that stood out is that Koha is more complex than the earlier applications because it is a full integrated library system rather than just a CMS or digital exhibit platform. That meant the installation involved more system configuration before the browser-based setup could begin. The course text also recommends using `tmux` during installation because the Koha package install can take a while and should continue even if the SSH session drops. :contentReference[oaicite:3]{index=3}
+One early issue was that `tmux` was not installed. I installed it successfully, but the minimized system still did not include the full man page setup. Since that was not required to continue, I moved on with the Koha installation.
+
+Another issue was that `nano` was not installed, which prevented me from editing `/etc/koha/koha-sites.conf` at first. Installing `nano` fixed that problem.
+
+I also ran into a repository verification error because the Koha signing key file name did not match the path expected by the `Signed-By` line in the repository configuration. Renaming the key file corrected that problem and allowed `apt update` to complete successfully.
+
+When I created the Koha instance, the process stopped twice because Apache required additional modules. First I had to enable `mod_rewrite`, and then I had to enable `mod_cgi`. After restarting Apache and rerunning the command, the Koha instance was created successfully.
+
+The most important troubleshooting step came when the Koha staff page would not load on port `8080`. The problem turned out to be that Apache was only listening on port `80`, even though Koha had already been configured to use `8080` and `8081`. Updating `/etc/apache2/ports.conf` to include those ports fixed the connection problem and allowed the site to load in the browser.
 
 ## What I Learned
 
-This project helped me better understand how a full library system fits into the larger web environment I had already been building. WordPress served as the public-facing website, Omeka served as the digital library, and Koha added the more traditional ILS functions such as cataloging, circulation, patron records, and the OPAC. The course text presents this as the final step in connecting multiple library web services together, which made the overall project feel much closer to a real systems librarianship workflow. :contentReference[oaicite:4]{index=4}
+This project helped me understand how much more complex a full library system is than a general website or digital exhibit platform. WordPress and Omeka mainly focused on web publishing, but Koha required more detailed coordination among the package repository, Apache modules, MariaDB, Koha configuration files, ports, and the browser installer.
 
-I also learned that Koha installation depends on much more than just installing a package. The firewall rules, Apache modules, Apache ports, Koha configuration files, database backend, and web installer all have to line up correctly before the system works. That reinforced the same lesson from the earlier assignments: a working web application depends on multiple services and configuration files working together, not just the software being present on the server. :contentReference[oaicite:5]{index=5}
+It also reinforced the idea that web applications do not fail only because of bad code. Small configuration issues—such as a file path typo, a missing Apache module, or Apache not listening on the correct port—can stop the entire system from working even when the main software is installed correctly.
 
-## Reflection
+Another thing that became clearer is how the three systems now fit together as part of a broader library web environment:
 
-This installation felt like the most “systems” oriented part of the project because it required me to think about the server, the firewall, Apache, the database, package repositories, and the web interface all at the same time. Earlier assignments helped build the foundation for that, but Koha made the connections among those pieces much more obvious. It also made clear why documentation matters so much in this course. The class notes emphasize that documentation should be clear, reproducible, organized in Markdown, and honest about both the process and the problems, because a working system without documentation is incomplete. I approached this write-up in that same summary style so it fits the documentation pattern I have been using in the repo already. :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}
+- **WordPress** serves as the public-facing homepage.
+- **Omeka** serves as the digital library.
+- **Koha** serves as the OPAC and integrated library system.
 
-## Live Access
+That made this final project feel much closer to a real systems librarianship workflow, where different web tools are installed separately but need to work together as one public service environment.
 
-- Staff Interface: `http://YOUR-IP-ADDRESS:8080`
-- Public OPAC: `http://YOUR-IP-ADDRESS:8081`
+## Live Links
+
+- WordPress Site: http://34.173.94.120/wordpress/
+- Koha OPAC: http://34.45.17.203:8081/
 
 ## Notes
 
-For GitHub, I would avoid posting any real Koha installer passwords or administrator credentials publicly. Earlier notes in this project also flagged that passwords should be replaced with placeholders before pushing documentation to a public repo. :contentReference[oaicite:8]{index=8}
+For security, I would not include the real Koha installer password or staff credentials in GitHub documentation. Any passwords used during installation should be replaced with placeholders before publishing the documentation publicly.
+
+## Reflection
+
+This was the most systems-focused installation in the project because it required attention to the operating system, package repositories, Apache modules, Apache ports, database setup, instance creation, and browser-based configuration all at the same time. Earlier assignments helped build the background for that, but Koha made the relationships among those layers much more visible.
+
+What stood out most to me is that a working installation depended on details that were easy to overlook. A missing text editor, a mismatch in the repository key filename, disabled Apache modules, or Apache listening on the wrong port could all stop progress. None of those were especially large problems by themselves, but each one mattered. That reinforced why careful documentation is so important in this course. The process is not just about reaching a working result. It is also about recording the steps clearly enough that I could repeat them later or understand where something broke.
+
+This project also helped me see the final library website as a connected system rather than a series of separate assignments. WordPress, Omeka, and Koha each serve a different purpose, but together they form a more complete library web presence. That made this installation feel like the final piece of the larger course project rather than just another isolated software setup.
