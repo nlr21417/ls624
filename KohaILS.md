@@ -100,3 +100,65 @@ This was the most systems-focused installation in the project because it require
 What stood out most to me is that a working installation depended on details that were easy to overlook. A missing text editor, a mismatch in the repository key filename, disabled Apache modules, or Apache listening on the wrong port could all stop progress. None of those were especially large problems by themselves, but each one mattered. That reinforced why careful documentation is so important in this course. The process is not just about reaching a working result. It is also about recording the steps clearly enough that I could repeat them later or understand where something broke.
 
 This project also helped me see the final library website as a connected system rather than a series of separate assignments. WordPress, Omeka, and Koha each serve a different purpose, but together they form a more complete library web presence. That made this installation feel like the final piece of the larger course project rather than just another isolated software setup.
+
+## Return
+
+## Apache Restart Fix
+### 2026-04-20
+
+When completing the the documentation for [Library-Web-Architecture](https://github.com/nlr21417/ls624/blob/main/Library-Web-Architecture.md) I could no longer get my [Koha ILS](http://34.45.17.203:8081/), to open so I went back through: the first check showed that nothing was listening on ports `8080` or `8081`. Apache was also in a failed state even though the configuration syntax tested as valid.
+
+Using the Apache error log, I found that the failure was related to the Apache accept mutex:
+
+### 1. Check whether Apache is listening on the Koha ports
+sudo ss -tlnp | grep -E ':8080|:8081'
+
+### 2. Check Apache service status
+sudo systemctl status apache2
+
+### 3. Check what ports Apache is configured to listen on
+grep -E '^Listen' /etc/apache2/ports.conf
+
+### 4. Test Apache configuration syntax
+sudo apachectl configtest
+
+### 5. Read recent Apache service logs
+sudo journalctl -u apache2 -n 50 --no-pager
+
+### 6. Read the Apache error log
+sudo tail -n 50 /var/log/apache2/error.log
+
+- `couldn't grab the accept mutex`
+- `MPM run failed, exiting`
+
+*(learned what mutex means - please get a chuckle out of this, also how did people code before there was internet and group think???)*
+
+### 7. Check for an existing Mutex directive
+sudo grep -R '^Mutex' /etc/apache2 2>/dev/null
+
+### 8. Edit Apache config to add the mutex fix
+sudo nano /etc/apache2/apache2.conf
+
+Because there was no existing `Mutex` directive in the Apache configuration, I added the following line to `/etc/apache2/apache2.conf`:
+
+#### added this line:
+```apache
+Mutex file:/var/lock/apache2 mpm-accept
+```
+### 9. Re-test configuration after editing
+sudo apachectl configtest
+
+### 10. Restart Apache
+sudo systemctl restart apache2
+
+### 11. Confirm Apache is running again
+sudo systemctl status apache2
+
+### 12. Confirm Apache is listening again on 8080 and 8081
+sudo ss -tlnp | grep -E ':8080|:8081'
+
+# Yay and finally *WHEW*
+
+
+
+
