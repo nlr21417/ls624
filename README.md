@@ -1,3 +1,15 @@
+## 2026-04-21
+### Library Site Architecture Documentation
+## Overview
+
+This repository documents the creation of a library website ecosystem using **WordPress**, **Omeka Classic**, and **Koha**. WordPress serves as the main public-facing website, Omeka supports the digital library, and Koha provides the catalog through its OPAC. Each platform was installed and configured on Linux servers, then linked together to create a connected library web presence. The documentation in this repo explains what was built, how it was configured, and how the systems function together.
+
+## Diagram Notes
+
+I created the diagram to show the overall structure of the library website in a simple way. It places **WordPress** at the center as the main public-facing site, with links out to **Omeka Classic** for the digital library and **Koha** for the catalog. The goal was to make the architecture easy to understand visually and to show how users move between the three systems.
+
+
+
 ## 2026-04-20
 ### Koha Documentation
 - completed the Koha ILS installation on a new Ubuntu VM
