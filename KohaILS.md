@@ -90,8 +90,8 @@ That made this final project feel much closer to a real systems librarianship wo
 
 ## Live Links
 
-- [WordPress Site:](http://34.173.94.120/wordpress/)
-- [Koha OPAC:](http://34.45.17.203:8081/)
+- [WordPress Site](http://34.173.94.120/wordpress/)
+- [Koha OPAC](http://34.45.17.203:8081/)
 
 ## Reflection
 
