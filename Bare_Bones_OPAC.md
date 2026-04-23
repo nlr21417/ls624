@@ -13,10 +13,6 @@ I created two connected parts:
 - A toy OPAC that displays library-style book data through a web page
 - A toy cataloging module that allows records to be managed through a separate interface
 
-Live links:
-
-- [OPAC](http://34.173.94.120/mylibrary.html)
-- [Cataloging Module](http://34.173.94.120/cataloging/index.html)
 
 ## Main Technologies Used
 
