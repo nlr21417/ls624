@@ -33,7 +33,6 @@ The goal of this lab is to install MySQL, secure it, create a database and regul
 12. Tested PHP syntax and verified the page in the browser.
 
 
-[My OPAC Test Page](http://35.192.178.142/opac.php)
 
 ## Issues Encountered
 - I did not run into major installation errors, but I could only get some of the commands to work if I pasted them from your guide into a word document. I couldn't personally find my typos, so I'm sure it was a space or lack of space issue. I just couldn't determine what actual character area I was messing up. 
