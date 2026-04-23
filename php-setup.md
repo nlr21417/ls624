@@ -26,8 +26,6 @@ The goal was to verify PHP server-side execution using a `phpinfo()` test file a
 5. Created `index.php`.
 
 
-[Nancy Roberts' Webpage](http://35.192.178.142/)
-
 ## Issues Encountered
 - None during intallation and testing
 
