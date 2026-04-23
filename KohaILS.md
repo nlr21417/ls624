@@ -88,11 +88,6 @@ Another thing that became clearer is how the three systems now fit together as p
 
 That made this final project feel much closer to a real systems librarianship workflow, where different web tools are installed separately but need to work together as one public service environment.
 
-## Live Links
-
-- [WordPress Site](http://34.173.94.120/wordpress/)
-- [Koha OPAC](http://34.45.17.203:8081/)
-
 ## Reflection
 
 This was the most systems-focused installation in the project because it required attention to the operating system, package repositories, Apache modules, Apache ports, database setup, instance creation, and browser-based configuration all at the same time. Earlier assignments helped build the background for that, but Koha made the relationships among those layers much more visible.
@@ -106,7 +101,7 @@ This project also helped me see the final library website as a connected system 
 ## Apache Restart Fix
 ### 2026-04-20
 
-When completing the the documentation for [Library-Web-Architecture](https://github.com/nlr21417/ls624/blob/main/Library-Web-Architecture.md) I could no longer get my [Koha ILS](http://34.45.17.203:8081/), to open so I went back through: the first check showed that nothing was listening on ports `8080` or `8081`. Apache was also in a failed state even though the configuration syntax tested as valid.
+When completing the the documentation for [Library-Web-Architecture](https://github.com/nlr21417/ls624/blob/main/Library-Web-Architecture.md) I could no longer get my Koha ILS, to open so I went back through: the first check showed that nothing was listening on ports `8080` or `8081`. Apache was also in a failed state even though the configuration syntax tested as valid.
 
 Using the Apache error log, I found that the failure was related to the Apache accept mutex:
 
