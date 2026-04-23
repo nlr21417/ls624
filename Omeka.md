@@ -7,9 +7,6 @@ For this project, I installed and configured **Omeka Classic** on my Ubuntu serv
 ## What I Built
 I installed **Omeka Classic** in its own directory on the web server and configured it to use a separate MySQL database and user account. I also adjusted Apache settings so Omeka could use its rewrite rules correctly and complete the web-based installation.
 
-Live link:
-
-- [Nancy's Digital Library](http://34.173.94.120/omeka/)
 
 ## Main Technologies Used
 - Linux / Ubuntu server
