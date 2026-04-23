@@ -82,10 +82,6 @@ One gap in the materials was that the general logic of the system was clear, but
 
 - GitHub Repo: https://github.com/nlr21417/ls624
 
-## Links to Site
-
-- OPAC Page: http://34.173.94.120/mylibrary.html
-- Cataloging Module: http://34.173.94.120/cataloging/index.html
 
 ## Reflection
 
