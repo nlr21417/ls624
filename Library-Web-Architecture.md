@@ -2,7 +2,7 @@
 
 ## Overview
 
-My library website is built as a small ecosystem of three connected platforms: [WordPress](http://34.173.94.120/wordpress/), [Omeka Classic](http://34.173.94.120/omeka/), and [Koha OPAC](http://34.45.17.203:8081/). Instead of forcing one platform to do every job, I used each one for the kind of work it handles best. WordPress serves as the public-facing homepage, Omeka supports the digital library, and Koha provides the catalog through its OPAC. Together, these platforms create a clearer division of roles while still functioning as one library web presence.
+My library website is built as a small ecosystem of three connected platforms: [WordPress], [Omeka Classic], and [Koha OPAC]. Instead of forcing one platform to do every job, I used each one for the kind of work it handles best. WordPress serves as the public-facing homepage, Omeka supports the digital library, and Koha provides the catalog through its OPAC. Together, these platforms create a clearer division of roles while still functioning as one library web presence.
 
 In this architecture, **WordPress** is the main entry point for users. It acts as the homepage and navigation layer, introducing the library and guiding visitors to the right service. From WordPress, users can move to the digital library in Omeka or to the catalog in Koha. I made this choice because WordPress is flexible and easy to use for general site content, announcements, and top-level navigation. It works well as the central “front door” of the system.
 
@@ -16,12 +16,6 @@ Compared with [Loudoun County Public Library](https://library.loudoun.gov/), my 
 
 This setup would be useful in a real-world library because it keeps each system focused on its strengths. WordPress handles communication and navigation, Omeka handles digital collections, and Koha handles catalog access. That separation also makes the system easier to maintain, since each platform has a clear role in the larger ecosystem.
 
-## Site Links
-
-- Main Website: [WordPress](http://34.173.94.120/wordpress/)
-- Digital Library: [Omeka Classic](http://34.173.94.120/omeka/)
-- Catalog: [Koha OPAC](http://34.45.17.203:8081/)
-- Comparison Site: [Loudoun County Public Library](https://library.loudoun.gov/)
 
 ## Diagram
 
